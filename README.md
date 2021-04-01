@@ -1,5 +1,9 @@
 # devportal-content
-User content for Ambassador Edge Stack Dev Portal
+User content for Ambassador Edge Stack Dev Portal.
+
+V2 is compatible with Edge Stack 1.13+.
+
+If using an earlier version, use v1 of the DevPortal content [here](https://github.com/datawire/devportal-content).
 
 ## How to customize
 
