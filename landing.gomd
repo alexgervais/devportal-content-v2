@@ -7,7 +7,7 @@
 
 ## Customizing the Portal
 
-This content is fully customizable for your specific needs. 
+This content is fully customizable for your specific needs.
 For details on customizing the portal, see https://www.getambassador.io/reference/dev-portal.
 
 ## Available Services
@@ -29,11 +29,12 @@ The following services are exposed through this Ambassador instance:
             <tr>
                 {{end}}
                 <td>
-                    <samp>{{$element.Service.Namespace}}.{{$element.Service.Name}}</samp>
+                    <samp>{{$element.Metadata.ServiceDisplayName}}</samp>
                 </td>
                 <td>
+                    {{$docBasePath := printf "%s%s" $.Prefix $.S.DocsBasePath }}
                     {{if $element.Metadata.HasDoc}}
-                    <a href="{{$.Prefix}}doc/{{$element.Service.Namespace}}/{{$element.Service.Name}}"><code>API Documentation</code></a>
+                    <a href="{{$docBasePath}}{{$element.Metadata.DevportalPath}}"><code>API Documentation</code></a>
                     {{else}}
                     <code><span style="color:red">No API Documentation</span></code>
                     {{end}}
