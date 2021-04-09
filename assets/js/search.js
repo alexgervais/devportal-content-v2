@@ -6,8 +6,8 @@ $(document).ready(function() {
           apiSettings: {
               url: '/docs/api/search?term={query}'
           },
-          maxResults: 7,
-          minCharacters: 3,
+          maxResults: 10,
+          minCharacters: 2,
       });
 });
 
