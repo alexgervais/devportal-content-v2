@@ -6,7 +6,7 @@ $(document).ready(function() {
           apiSettings: {
               url: '/docs/api/search?term={query}'
           },
-          maxResults: 10,
+          maxResults: 7,
           minCharacters: 2,
       });
 });
