@@ -73,7 +73,7 @@ The following services are exposed through this Ambassador instance:
         {{$svclen := len $svcName}}
         {{$rest := slice $svcName 9 $svclen}}
                 
-        {{$matcher := "[group1]"}}
+        {{$matcher := "[group2]"}}
         {{if eq $group $matcher}}
               
         {{if isEven $i }}
