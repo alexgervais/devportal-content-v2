@@ -34,8 +34,8 @@ The following services are exposed through this Ambassador instance:
                     {{$group := slice $svcName 0 8}}
                     {{$svclen := len $svcName}}
                     {{$rest := slice $svcName 9 $svclen}}
-                    <samp>{{$group}}</samp>
-                    <samp>{{$rest}}</samp>
+                    <samp>Group:P{{$group}}P</samp>
+                    <samp>Rest:P{{$rest}}P</samp>
                     
                     
                 </td>
