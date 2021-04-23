@@ -14,10 +14,6 @@ For details on customizing the portal, see https://www.getambassador.io/referenc
 
 The following services are exposed through this Ambassador instance:
 
-<span>{{ .S.K8sStore.Slice }}</span>
-<span>{{ .S.K8sStore }}</span>
-<span>{{ .S}}</span>
-<span>{{ . }}</span>
 
 <table cellpadding="2em" width="100%">
     <thead>
@@ -34,8 +30,13 @@ The following services are exposed through this Ambassador instance:
             <tr>
                 {{end}}
                 <td>
-                    <samp>{{ . }}</samp>
-                    <samp>"not group 2"</samp>
+                    {{svcName := $element.Metadata.ServiceDisplayName}}
+                    {{group := slice svcName 0 8}}
+                    {{svclen := len svcName}}
+                    {{rest := slice svcName 9 svclen}}
+                    <samp>{{group}}</samp>
+                    <samp>{{rest}}</samp>
+                    
                     
                 </td>
                 <td>
