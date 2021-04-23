@@ -33,6 +33,7 @@ The following services are exposed through this Ambassador instance:
                     <samp>{{$element.Metadata.ServiceDisplayName}}</samp>
                     {{else}
                     <samp>"not group 2"</samp>
+                    {{end}}
                     
                 </td>
                 <td>
