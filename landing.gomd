@@ -14,7 +14,7 @@ For details on customizing the portal, see https://www.getambassador.io/referenc
 
 The following services are exposed through this Ambassador instance:
 
-# Services with [group1] in their name
+# Services with "[group1]" in their name
 <table cellpadding="2em" width="100%">
     <thead>
         <tr>
@@ -24,21 +24,23 @@ The following services are exposed through this Ambassador instance:
     </thead>
     <tbody>
         {{range $i, $element := .S.K8sStore.Slice }}
+        
+        {{$svcName := $element.Metadata.ServiceDisplayName}}
+        {{$group := slice $svcName 0 8}}
+        {{$svclen := len $svcName}}
+        {{$rest := slice $svcName 9 $svclen}}
+                
+        {{$matcher := "[group1]"}}
+        {{if eq $group $matcher}}
+              
         {{if isEven $i }}
         <tr style="background: rgba(86,61,124,.05);">
             {{else}}
             <tr>
                 {{end}}
-                {{$svcName := $element.Metadata.ServiceDisplayName}}
-                {{$group := slice $svcName 0 8}}
-                {{$svclen := len $svcName}}
-                {{$rest := slice $svcName 9 $svclen}}
-                
-                {{$matcher := "[group1]"}}
-                {{if eq $group $matcher}}
-                <td>
 
-                    <samp>{{$rest}}</samp>
+                <td>
+                    <samp>{{$svcName}}</samp>
                 </td>
                 {{end}}
                 
@@ -52,10 +54,11 @@ The following services are exposed through this Ambassador instance:
                 </td>
             </tr>
             {{end}}
+            {{end}}
     </tbody>
 </table>
 
-# Services with [group2] in their name
+# Services with "[group2]" in their name
 <table cellpadding="2em" width="100%">
     <thead>
         <tr>
@@ -65,18 +68,26 @@ The following services are exposed through this Ambassador instance:
     </thead>
     <tbody>
         {{range $i, $element := .S.K8sStore.Slice }}
+        
+        {{$svcName := $element.Metadata.ServiceDisplayName}}
+        {{$group := slice $svcName 0 8}}
+        {{$svclen := len $svcName}}
+        {{$rest := slice $svcName 9 $svclen}}
+                
+        {{$matcher := "[group1]"}}
+        {{if eq $group $matcher}}
+              
         {{if isEven $i }}
         <tr style="background: rgba(86,61,124,.05);">
             {{else}}
             <tr>
                 {{end}}
+
                 <td>
-                    {{$svcName := $element.Metadata.ServiceDisplayName}}
-                    {{$group := slice $svcName 0 8}}
-                    {{$svclen := len $svcName}}
-                    {{$rest := slice $svcName 9 $svclen}}
-                    <samp>{{$rest}}</samp>
+                    <samp>{{$svcName}}</samp>
                 </td>
+                {{end}}
+                
                 <td>
                     {{$docBasePath := printf "%s%s" $.Prefix $.S.DocsBasePath }}
                     {{if $element.Metadata.HasDoc}}
@@ -86,6 +97,7 @@ The following services are exposed through this Ambassador instance:
                     {{end}}
                 </td>
             </tr>
+            {{end}}
             {{end}}
     </tbody>
 </table>
