@@ -29,11 +29,8 @@ The following services are exposed through this Ambassador instance:
             <tr>
                 {{end}}
                 <td>
-                    {{if strings.Contains($element.Metadata.ServiceDisplayName, "[group2]")
-                    <samp>{{$element.Metadata.ServiceDisplayName}}</samp>
-                    {{else}
+                    <samp>{{ . }}</samp>
                     <samp>"not group 2"</samp>
-                    {{end}}
                     
                 </td>
                 <td>
