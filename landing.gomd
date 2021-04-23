@@ -14,11 +14,6 @@ For details on customizing the portal, see https://www.getambassador.io/referenc
 
 The following services are exposed through this Ambassador instance:
 
-# Grab the services
-{{range $i, $element := .S.K8sStore.Slice }}
-
-
-
 <table cellpadding="2em" width="100%">
     <thead>
         <tr>
@@ -27,15 +22,14 @@ The following services are exposed through this Ambassador instance:
         </tr>
     </thead>
     <tbody>
-        
+        {{range $i, $element := .S.K8sStore.Slice }}
         {{if isEven $i }}
         <tr style="background: rgba(86,61,124,.05);">
             {{else}}
             <tr>
                 {{end}}
                 <td>
-                    {{$taco := $element.Metadata}}
-                    <samp>{{$taco}}</samp>
+                    <samp>{{$element.Metadata.ServiceDisplayName}}</samp>
                 </td>
                 <td>
                     {{$docBasePath := printf "%s%s" $.Prefix $.S.DocsBasePath }}
@@ -46,7 +40,6 @@ The following services are exposed through this Ambassador instance:
                     {{end}}
                 </td>
             </tr>
-            <>
             {{end}}
     </tbody>
 </table>
