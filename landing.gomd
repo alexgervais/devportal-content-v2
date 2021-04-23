@@ -40,7 +40,7 @@ The following services are exposed through this Ambassador instance:
                 {{end}}
 
                 <td>
-                    <samp>{{$svcName}}</samp>
+                    <samp>{{$rest}}</samp>
                 </td>
         
                 <td>
@@ -83,7 +83,7 @@ The following services are exposed through this Ambassador instance:
                 {{end}}
 
                 <td>
-                    <samp>{{$svcName}}</samp>
+                    <samp>{{$rest}}</samp>
                 </td>
                 
                 <td>
