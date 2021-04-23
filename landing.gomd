@@ -42,8 +42,7 @@ The following services are exposed through this Ambassador instance:
                 <td>
                     <samp>{{$svcName}}</samp>
                 </td>
-                {{end}}
-                
+        
                 <td>
                     {{$docBasePath := printf "%s%s" $.Prefix $.S.DocsBasePath }}
                     {{if $element.Metadata.HasDoc}}
@@ -86,7 +85,6 @@ The following services are exposed through this Ambassador instance:
                 <td>
                     <samp>{{$svcName}}</samp>
                 </td>
-                {{end}}
                 
                 <td>
                     {{$docBasePath := printf "%s%s" $.Prefix $.S.DocsBasePath }}
