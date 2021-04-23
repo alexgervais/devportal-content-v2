@@ -29,7 +29,8 @@ The following services are exposed through this Ambassador instance:
             <tr>
                 {{end}}
                 <td>
-                    <samp>{{$element.Metadata.ServiceDisplayName}}</samp>
+                    {{$taco := "tacos"}}
+                    <samp>{{$taco}}</samp>
                 </td>
                 <td>
                     {{$docBasePath := printf "%s%s" $.Prefix $.S.DocsBasePath }}
