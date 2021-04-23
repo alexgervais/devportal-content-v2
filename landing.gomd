@@ -30,12 +30,12 @@ The following services are exposed through this Ambassador instance:
             <tr>
                 {{end}}
                 <td>
-                    {{svcName := $element.Metadata.ServiceDisplayName}}
-                    {{group := slice svcName 0 8}}
-                    {{svclen := len svcName}}
-                    {{rest := slice svcName 9 svclen}}
-                    <samp>{{group}}</samp>
-                    <samp>{{rest}}</samp>
+                    {{$svcName := $element.Metadata.ServiceDisplayName}}
+                    {{$group := slice $svcName 0 8}}
+                    {{$svclen := len $svcName}}
+                    {{$rest := slice $svcName 9 $svclen}}
+                    <samp>{{$group}}</samp>
+                    <samp>{{$rest}}</samp>
                     
                     
                 </td>
