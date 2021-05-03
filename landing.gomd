@@ -14,7 +14,6 @@ For details on customizing the portal, see https://www.getambassador.io/referenc
 
 The following services are exposed through this Ambassador instance:
 
-# Services with "[group1]" in their name
 <table cellpadding="2em" width="100%">
     <thead>
         <tr>
@@ -24,25 +23,14 @@ The following services are exposed through this Ambassador instance:
     </thead>
     <tbody>
         {{range $i, $element := .S.K8sStore.Slice }}
-        
-        {{$svcName := $element.Metadata.ServiceDisplayName}}
-        {{$group := slice $svcName 0 8}}
-        {{$svclen := len $svcName}}
-        {{$rest := slice $svcName 9 $svclen}}
-                
-        {{$matcher := "[group1]"}}
-        {{if eq $group $matcher}}
-              
         {{if isEven $i }}
         <tr style="background: rgba(86,61,124,.05);">
             {{else}}
             <tr>
                 {{end}}
-
                 <td>
-                    <samp>{{$rest}}</samp>
+                    <samp>{{$element.Metadata.ServiceDisplayName}}</samp>
                 </td>
-        
                 <td>
                     {{$docBasePath := printf "%s%s" $.Prefix $.S.DocsBasePath }}
                     {{if $element.Metadata.HasDoc}}
@@ -52,50 +40,6 @@ The following services are exposed through this Ambassador instance:
                     {{end}}
                 </td>
             </tr>
-            {{end}}
-            {{end}}
-    </tbody>
-</table>
-
-# Services with "[group2]" in their name
-<table cellpadding="2em" width="100%">
-    <thead>
-        <tr>
-            <td><b>Service Name</b></td>
-            <td><b>Swagger URL</b></td>
-        </tr>
-    </thead>
-    <tbody>
-        {{range $i, $element := .S.K8sStore.Slice }}
-        
-        {{$svcName := $element.Metadata.ServiceDisplayName}}
-        {{$group := slice $svcName 0 8}}
-        {{$svclen := len $svcName}}
-        {{$rest := slice $svcName 9 $svclen}}
-                
-        {{$matcher := "[group2]"}}
-        {{if eq $group $matcher}}
-              
-        {{if isEven $i }}
-        <tr style="background: rgba(86,61,124,.05);">
-            {{else}}
-            <tr>
-                {{end}}
-
-                <td>
-                    <samp>{{$rest}}</samp>
-                </td>
-                
-                <td>
-                    {{$docBasePath := printf "%s%s" $.Prefix $.S.DocsBasePath }}
-                    {{if $element.Metadata.HasDoc}}
-                    <a href="{{$docBasePath}}{{$element.Metadata.DevportalPath}}"><code>API Documentation</code></a>
-                    {{else}}
-                    <code><span style="color:red">No API Documentation</span></code>
-                    {{end}}
-                </td>
-            </tr>
-            {{end}}
             {{end}}
     </tbody>
 </table>
