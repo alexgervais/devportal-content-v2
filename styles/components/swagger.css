@@ -9,7 +9,7 @@
     line-height: 1.05882353em;
     margin-top: 0.35294118em;
     margin-bottom: 0.25em;
-    color: #FF52D4;
+    color: var(--primary-color);
 }
 
 .swagger-ui .info {
@@ -17,32 +17,32 @@
 }
 
 .swagger-ui .info .title small {
-    background: #FF52D4;
+    background: var(--brand-color);
 }
 
 .swagger-ui .info a {
-    color: #FF52D4;
+    color: var(--brand-color);
 }
 
 .swagger-ui .info a:hover {
-    color: #FF52D4;
+    color: var(--brand-color);
     text-decoration: underline;
 }
 
 .swagger-ui .opblock.opblock-get {
-    border-color: #FF52D4;
+    border-color: var(--brand-color);
     background: var(--background-color);
 }
 
 .swagger-ui .opblock.opblock-get .opblock-summary {
-    border-color: #FF52D4;
+    border-color: var(--brand-color);
 }
 
 .swagger-ui .opblock.opblock-get .opblock-summary-method {
-    background: #FF52D4;
+    background: var(--brand-color);
 }
 
 .swagger-ui .btn.execute {
-    border-color: #FF52D4;
-    background: #FF52D4;
+    border-color: var(--brand-color);
+    background: var(--brand-color);
 }
